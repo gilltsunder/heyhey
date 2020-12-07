@@ -34,7 +34,7 @@ class MainCollectionViewController: UICollectionViewController {
         self.navigationItem.leftBarButtonItem  = logoutBarButtonItem
     }
     
-    @objc func logoutUser() {
+    @objc private func logoutUser() {
         let contr = SignInViewController.instantiate()
         contr.modalPresentationStyle = .fullScreen
         present(contr, animated: true, completion: nil)

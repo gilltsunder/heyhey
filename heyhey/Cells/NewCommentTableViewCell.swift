@@ -9,9 +9,9 @@ import UIKit
 
 class NewCommentTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var rateView: StarRatingView!
-    @IBOutlet weak var commentTextField: UITextField! {
+    @IBOutlet weak private var label: UILabel!
+    @IBOutlet weak private var rateView: StarRatingView!
+    @IBOutlet weak private var commentTextField: UITextField! {
         didSet {
             commentTextField.placeholder = "write you comment here"
         }
@@ -33,7 +33,7 @@ class NewCommentTableViewCell: UITableViewCell {
         handleTextField()
     }
     
-    func setup() {
+    private func setup() {
         label.text = isPreview ?
             "please, rate the product" :
             "please registration for start"
@@ -46,11 +46,11 @@ class NewCommentTableViewCell: UITableViewCell {
         rateView.starRounding = .floorToFullStar
     }
     
-    func handleTextField() {
+    private func handleTextField() {
         commentTextField.addTarget(self, action: #selector(Self.textFieldDidChenge), for: UIControl.Event.editingChanged)
     }
     
-    @objc func textFieldDidChenge() {
+    @objc private func textFieldDidChenge() {
         guard let comment = commentTextField.text, !comment.isEmpty else {
             sendButton.isEnabled = false
             return

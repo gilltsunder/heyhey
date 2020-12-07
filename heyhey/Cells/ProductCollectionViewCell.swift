@@ -9,9 +9,9 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var image: UIImageView!
     
     var dispasable: Dispossable?
     

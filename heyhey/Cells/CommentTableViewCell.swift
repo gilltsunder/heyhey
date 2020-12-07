@@ -9,10 +9,10 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var rateView: StarRatingView! {
+    @IBOutlet weak private var containerView: UIView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var rateView: StarRatingView! {
         didSet {
             rateView.isUserInteractionEnabled = false
             rateView.starRounding = .roundToFullStar

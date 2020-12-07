@@ -14,15 +14,15 @@ class SignInViewController: BaseViewController {
         return controller
     }
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInButton: UIButton! {
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var loginTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var signInButton: UIButton! {
         didSet {
             signInButton.isEnabled = false
         }
     }
-    @IBOutlet weak var swithStateButton: UIButton!
+    @IBOutlet weak private var swithStateButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class SignInViewController: BaseViewController {
         handleTextField()
     }
     
-    func config() {
+    private func config() {
         adjustTextField(with: loginTextField, title: "Login")
         adjustTextField(with: passwordTextField, title: "Password")
         
@@ -43,18 +43,18 @@ class SignInViewController: BaseViewController {
         swithStateButton.addTarget(self, action: #selector(switchController), for: .touchUpInside)
     }
     
-    func configure() {
+    private func configure() {
         titleLabel.text = "Welcome, login, please"
         swithStateButton.setTitle("Don't have an account", for: .normal)
         signInButton.setTitle("login", for: .normal)
     }
     
-    func handleTextField() {
+    private func handleTextField() {
         loginTextField.addTarget(self, action: #selector(Self.textFieldDidChenge), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(Self.textFieldDidChenge), for: UIControl.Event.editingChanged)
     }
     
-    @objc func textFieldDidChenge() {
+    @objc private func textFieldDidChenge() {
         guard let email = loginTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty
         else {
@@ -65,7 +65,7 @@ class SignInViewController: BaseViewController {
         signInButton .isEnabled = true
     }
     
-    @objc func startLogin(sender: UIButton) {
+    @objc private func startLogin(sender: UIButton) {
         view.endEditing(true)
         guard let name = loginTextField.text, let pass = passwordTextField.text else {
             return
@@ -85,7 +85,7 @@ class SignInViewController: BaseViewController {
         }
     }
     
-    @objc func switchController(sender: UIButton) {
+    @objc private func switchController(sender: UIButton) {
         let contr = SignUpViewController.instantiate()
         self.present(contr, animated: true, completion: nil)
     }

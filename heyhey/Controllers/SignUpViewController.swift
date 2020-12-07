@@ -14,15 +14,15 @@ class SignUpViewController: BaseViewController {
         return controller
     }
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton! {
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var loginTextField: UITextField!
+    @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var signUpButton: UIButton! {
         didSet {
             signUpButton.isEnabled = false
         }
     }
-    @IBOutlet weak var swithStateButton: UIButton!
+    @IBOutlet weak private var swithStateButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SignUpViewController: BaseViewController {
         signUpButton.setTitle("regist", for: .normal)
     }
     
-    func config() {
+    private func config() {
         view.backgroundColor = .black
         adjustTextField(with: loginTextField, title: "Login")
         adjustTextField(with: passwordTextField, title: "Password")
@@ -43,12 +43,12 @@ class SignUpViewController: BaseViewController {
         swithStateButton.addTarget(self, action: #selector(switchController), for: .touchUpInside)
     }
     
-    func handleTextField() {
+    private func handleTextField() {
         loginTextField.addTarget(self, action: #selector(Self.textFieldDidChenge), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(Self.textFieldDidChenge), for: UIControl.Event.editingChanged)
     }
     
-    @objc func textFieldDidChenge() {
+    @objc private func textFieldDidChenge() {
         guard let email = loginTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty
             else {
@@ -61,7 +61,7 @@ class SignUpViewController: BaseViewController {
     }
 
     
-    @objc func startLogin(sender: UIButton) {
+    @objc private func startLogin(sender: UIButton) {
         view.endEditing(true)
         guard let name = loginTextField.text, let pass = passwordTextField.text else {
             return
@@ -80,7 +80,7 @@ class SignUpViewController: BaseViewController {
         }
     }
     
-    @objc func switchController(sender: UIButton) {
+    @objc private func switchController(sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 }

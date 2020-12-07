@@ -19,7 +19,7 @@ class ProductViewController: UIViewController, PostData {
         return controller
     }
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     
     var dispasable: Dispossable?
     var productData: ProductModel?
@@ -42,7 +42,7 @@ class ProductViewController: UIViewController, PostData {
         configureProduct()
     }
     
-    func configureUI() {
+    private func configureUI() {
         view.addSubview(productView)
         let rect = CGRect(x: 0, y: 0, width: view.frame.width, height: 200)
         productView.frame = rect
@@ -63,11 +63,11 @@ class ProductViewController: UIViewController, PostData {
         tableView.separatorStyle = .none
     }
     
-    @objc func backButtonTapped(sender: UIButton) {
+    @objc private func backButtonTapped(sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    func configureProduct() {
+    private func configureProduct() {
         productView.titleLabel.text = productData?.text
         productView.descriptionLabel.text = productData?.text
         
@@ -83,7 +83,7 @@ class ProductViewController: UIViewController, PostData {
         })
     }
     
-    func fetchCurrentProduct() {
+    private func fetchCurrentProduct() {
         guard let productId = productData?.id else { return }
         networkService.request(router: .getCurrentProduct(path: String(productId)), model: [CurrentProductModel].self) { [weak self] (data) in
             guard let data = data else { return }
