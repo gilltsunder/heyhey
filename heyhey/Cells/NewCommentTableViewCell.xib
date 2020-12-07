@@ -24,16 +24,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="389" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrX-ZF-B2G">
-                                        <rect key="frame" x="0.0" y="0.0" width="189.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aod-ye-HTK" customClass="StarRatingView" customModule="heyhey" customModuleProvider="target">
-                                        <rect key="frame" x="199.5" y="0.0" width="189.5" height="50"/>
+                                        <rect key="frame" x="272.5" y="0.0" width="116.5" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="aod-ye-HTK" firstAttribute="width" secondItem="rcz-1f-gy4" secondAttribute="width" multiplier="0.3" id="h91-Cn-jK5"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XcF-cb-TZd">
                                 <rect key="frame" x="0.0" y="50" width="389" height="77"/>
